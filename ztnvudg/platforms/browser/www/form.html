@@ -133,27 +133,55 @@
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content mdl-color--grey-100">
-		<div><h3>Question</h3></div>
-		<p>Click on the map to get the coordinates for your next question</p>
+		<div><h3>Question</h3></div><br/>
+		<div><h4>Location<h4><br/>
+		<p>Click on the map to get the coordinates for your next question</p><br/>
+		</div>
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="mapid" style="width: 100%; height: 500px;"> 
           </div>
           
 		  <div class="demo-charts mdl-color--teal-50 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="form" style="width: 100%; height: 700px;"> 
 			<div>
-			
-			<label for="question">Question</label><input type="text" size="25" id="question"/><br />
-			<label for="answer1">Answer 1.</label><input type="text" size="25" id="answer1"/><br />
-			<label for="answer2">Answer 2.</label><input type="text" size="25" id="answer2"/><br />
-			<label for="answer3">Answer 3.</label><input type="text" size="25" id="answer3"/><br />
-			<label for="answer4">Answer 4.</label><input type="text" size="25" id="answer4"/><br />
-              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+			              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="question">
+				<label class="mdl-textfield__label" for="question">Question</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="answer1">
+				<label class="mdl-textfield__label" for="answer1">Answer 1</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="answer2">
+				<label class="mdl-textfield__label" for="answer2">Answer 2</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="answer3">
+				<label class="mdl-textfield__label" for="answer3">Answer 3</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="answer4">
+				<label class="mdl-textfield__label" for="answer4">Answer 4</label>
+			</div>
                 Which is the correct answer?
-              <br />
-				Answer 1: <input id="correctAnswer1" type="radio" name="correctAnswer" value="1" /><br />
-				Answer 2: <input id="correctAnswer2" type="radio" name="correctAnswer" value="2"/><br />
-				Answer 3: <input id="correctAnswer3" type="radio" name="correctAnswer" value="3"/><br />
-				Answer 4: <input id="correctAnswer4" type="radio" name="correctAnswer" value="4"/><br />
-			  </div>
+            <br />
+			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer1">
+			    <input type="radio" id="correctAnswer1" class="mdl-radio__button" name="options" value="1" checked>
+				<span class="mdl-radio__label">1</span>
+			</label>
+			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer2">
+			  <input type="radio" id="correctAnswer2" class="mdl-radio__button" name="options" value="2">
+			  <span class="mdl-radio__label">2</span>
+			</label>
+			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer3">
+			  <input type="radio" id="correctAnswer3" class="mdl-radio__button" name="options" value="3">
+			  <span class="mdl-radio__label">3</span>
+			</label>
+			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer4">
+			  <input type="radio" id="correctAnswer4" class="mdl-radio__button" name="options" value="4">
+			  <span class="mdl-radio__label">4</span>
+			</label>
 			<br />
 			<div class="mdl-card__actions mdl-card--border">
 				<a onclick="startDataUpload()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-500">Add a Question</a>
