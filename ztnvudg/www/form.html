@@ -81,28 +81,28 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Question Setting App</span>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
+          <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"> -->
+            <!-- <label class="mdl-button mdl-js-button mdl-button--icon" for="search"> -->
+              <!-- <i class="material-icons">search</i> -->
+            <!-- </label> -->
+            <!-- <div class="mdl-textfield__expandable-holder"> -->
+              <!-- <input class="mdl-textfield__input" type="text" id="search"> -->
+              <!-- <label class="mdl-textfield__label" for="search">Enter your query...</label> -->
+            <!-- </div> -->
+          <!-- </div> -->
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
+            <li class="mdl-menu__item">User Guide</li>
+            <!-- <li class="mdl-menu__item">Contact</li> -->
+            <!-- <li class="mdl-menu__item">Legal information</li> -->
           </ul>
         </div>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="/img/ucl.jpg">
+          <img src="/ucl.jpg">
           <!-- <div class="demo-avatar-dropdown"> -->
             <!-- <span>hello@example.com</span> -->
             <!-- <div class="mdl-layout-spacer"></div> -->
@@ -119,43 +119,49 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
-          <a class="mdl-navigation__link" href=""onclick='getEarthquakes();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Get Earthquakes</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
-          <a class="mdl-navigation__link" href=""onclick='trackLocation();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Get Location</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
-          <a class="mdl-navigation__link" href=""onclick='getPoi();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Get POI</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a> -->
+          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a> -->
+          <!-- <a class="mdl-navigation__link" href=""onclick='getEarthquakes();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Get Earthquakes</a> -->
+          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a> -->
+          <!-- <a class="mdl-navigation__link" href=""onclick='trackLocation();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Get Location</a> -->
+          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a> -->
+          <!-- <a class="mdl-navigation__link" href=""onclick='getPoi();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Get POI</a> -->
+          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a> -->
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content mdl-color--grey-100">
-		<div><h3>Question</h3></div><br/>
-		<div><h4>Location<h4><br/>
-		<p>Click on the map to get the coordinates for your next question</p><br/>
+		<div><h3>Set a Question</h3>
+		  <h4>Location</h4>
+		<p>Click on the map to get the coordinates for your question.</p><br/>
 		</div>
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="mapid" style="width: 100%; height: 500px;"> 
           </div>
           
 		  <div class="demo-charts mdl-color--teal-50 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="form" style="width: 100%; height: 700px;"> 
 			<div>
+			<h4>Question Contents</h4>
+			<br/>
+			<p>Enter the question and possible answers, indicate which is the correct answer, and submit!</p>
 			              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="question">
 				<label class="mdl-textfield__label" for="question">Question</label>
 			</div>
+			<br />			
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="answer1">
 				<label class="mdl-textfield__label" for="answer1">Answer 1</label>
 			</div>
+			<br />			
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="answer2">
 				<label class="mdl-textfield__label" for="answer2">Answer 2</label>
 			</div>
+			<br />			
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="answer3">
 				<label class="mdl-textfield__label" for="answer3">Answer 3</label>
@@ -164,14 +170,16 @@
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="answer4">
 				<label class="mdl-textfield__label" for="answer4">Answer 4</label>
-				<br />
+			<br />
 			</div>
+			<br />			
                 Which is the correct answer?
             <br />
 			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer1">
 			    <input type="radio" id="correctAnswer1" class="mdl-radio__button" name="options" value="1" checked>
 				<span class="mdl-radio__label">1</span>
 			</label>
+			<br />
 			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer2">
 			  <input type="radio" id="correctAnswer2" class="mdl-radio__button" name="options" value="2">
 			  <span class="mdl-radio__label">2</span>
@@ -181,13 +189,14 @@
 			  <input type="radio" id="correctAnswer3" class="mdl-radio__button" name="options" value="3">
 			  <span class="mdl-radio__label">3</span>
 			</label>
+			<br />			
 			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer4">
 			  <input type="radio" id="correctAnswer4" class="mdl-radio__button" name="options" value="4">
 			  <span class="mdl-radio__label">4</span>
 			</label>
 			<br />
 			<div class="mdl-card__actions mdl-card--border">
-				<a onclick="startDataUpload()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-500">Add a Question</a>
+				<a onclick="startDataUpload()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-500">Submit Question</a>
             </div>
 			<br />
 <div id="dataUploadResult">The result of the upload goes here</div>
@@ -238,8 +247,8 @@ function dataUploaded() {
   // this function listens out for the server to say that the data is ready - i.e. has state 4
   if (client.readyState == 4) {
     // change the DIV to show the response
-	alert("HERE");
     document.getElementById("dataUploadResult").innerHTML = client.responseText;
+	alert("Question successfully submitted!");
     }
   else {
       document.getElementById("dataUploadResult").innerHTML = "ERROR";
