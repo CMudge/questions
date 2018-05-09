@@ -81,41 +81,11 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Question Setting App</span>
           <div class="mdl-layout-spacer"></div>
-          <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"> -->
-            <!-- <label class="mdl-button mdl-js-button mdl-button--icon" for="search"> -->
-              <!-- <i class="material-icons">search</i> -->
-            <!-- </label> -->
-            <!-- <div class="mdl-textfield__expandable-holder"> -->
-              <!-- <input class="mdl-textfield__input" type="text" id="search"> -->
-              <!-- <label class="mdl-textfield__label" for="search">Enter your query...</label> -->
-            <!-- </div> -->
-          <!-- </div> -->
-          <!-- <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"> -->
-            <!-- <i class="material-icons">more_vert</i> -->
-          <!-- </button> -->
-          <!-- <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn"> -->
-            <!-- <li class="mdl-menu__item"><a href="questionsUserGuide.html">User Guide</a></li> -->
-            <!-- <li class="mdl-menu__item">Contact</li> -->
-            <!-- <li class="mdl-menu__item">Legal information</li> -->
           </ul>
         </div>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="/ucl.jpg">
-          <!-- <div class="demo-avatar-dropdown"> -->
-            <!-- <span>hello@example.com</span> -->
-            <!-- <div class="mdl-layout-spacer"></div> -->
-            <!-- <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"> -->
-              <!-- <i class="material-icons" role="presentation">arrow_drop_down</i> -->
-              <!-- <span class="visuallyhidden">Accounts</span> -->
-            <!-- </button> -->
-            <!-- <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn"> -->
-              <!-- <li class="mdl-menu__item">hello@example.com</li> -->
-              <!-- <li class="mdl-menu__item">info@example.com</li> -->
-              <!-- <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li> -->
-            <!-- </ul> -->
-          <!-- </div> -->
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
@@ -138,7 +108,7 @@
 			<h4>Question Contents</h4>
 			<br/>
 			<p>Enter the question and possible answers, indicate which is the correct answer, and submit!</p>
-			<!--Div containing question and anser text boxes-->
+			<!--Div containing question and answer text boxes-->
 			              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -209,78 +179,5 @@
 	
 
 </body>
-<script>
 
-
-<!-- var client; -->
-<!-- function processData(postString) { -->
-   <!-- client = new XMLHttpRequest(); -->
-   <!-- client.open('POST','http://developer.cege.ucl.ac.uk:30266/createQuestion',true); -->
- 
-   <!-- client.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); -->
-   <!-- client.onreadystatechange = dataUploaded; -->
-   <!-- client.send(postString); -->
-<!-- } -->
-<!-- // create the code to wait for the response from the data server, and process the response once it is received -->
-<!-- function dataUploaded() { -->
-  <!-- // this function listens out for the server to say that the data is ready - i.e. has state 4 -->
-  <!-- if (client.readyState == 4) { -->
-    <!-- // change the DIV to show the response -->
-    <!-- document.getElementById("dataUploadResult").innerHTML = client.responseText; -->
-	<!-- alert("Question successfully submitted!"); -->
-    <!-- } -->
-  <!-- else { -->
-      <!-- document.getElementById("dataUploadResult").innerHTML = "ERROR"; -->
-  <!-- } -->
-<!-- } -->
-
-
-<!-- // create a custom popup  -->
-<!-- var popup = L.popup(); -->
-<!-- // create an event detector to wait for the user's click event and then use the popup to show them where they clicked -->
-
-<!-- var latlng; -->
-
-<!-- function onMapClick(e) {  -->
-	<!-- popup -->
-		<!-- .setLatLng(e.latlng) -->
-		<!-- .setContent("You are adding a question at this point " + e.latlng.toString())  -->
-		<!-- .openOn(mymap); -->
-	<!-- latlng = e.latlng; -->
-<!-- } -->
-<!-- // now add the click event detector to the map  -->
-<!-- mymap.on('click', onMapClick); -->
-         
-
-<!-- function startDataUpload() { -->
-
-<!-- var question = document.getElementById("question").value; -->
-<!-- var answer1 = document.getElementById("answer1").value; -->
-<!-- var answer2 = document.getElementById("answer2").value; -->
-<!-- var answer3 = document.getElementById("answer3").value; -->
-<!-- var answer4 = document.getElementById("answer4").value; -->
-<!-- var correctAnswer = 0; -->
-
-
-
-<!-- if (document.getElementById("correctAnswer1").checked === true) { -->
-	<!-- correctAnswer = 1; -->
-<!-- } -->
-<!-- else if (document.getElementById("correctAnswer2").checked === true) { -->
-	<!-- correctAnswer = 2; -->
-<!-- } -->
-<!-- else if (document.getElementById("correctAnswer3").checked === true) { -->
-	<!-- correctAnswer = 3; -->
-<!-- } -->
-<!-- else if (document.getElementById("correctAnswer4").checked === true) { -->
-	<!-- correctAnswer = 4; -->
-<!-- } -->
-
-<!-- var postString = "question="+question+"&answer1="+answer1+"&answer2="+answer2+"&answer3="+answer3+"&answer4="+answer4+"&correctAnswer="+correctAnswer+"&lng="+latlng.lng+"&lat="+latlng.lat; -->
-<!-- processData(postString); -->
-
-<!-- } -->
-
-                          
-</script>
 </html>

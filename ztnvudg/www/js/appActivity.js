@@ -15,7 +15,8 @@
 		
 		
 
-var xhr; // define the global variable to process the AJAX request
+var xhr;
+// Function to make an AJAX request for the User Guide
 function callDivChange() {
 	xhr = new XMLHttpRequest();
 	xhr.open("GET", "questionsUserGuide.html", true);
@@ -28,7 +29,7 @@ function callDivChange() {
 	}
 	xhr.send();
 }
-
+// Function to load the User Guide
 function processDivChange() {
 	if (xhr.readyState < 4) // while waiting response from server
 		document.getElementById('main').innerHTML = "Loading...";
@@ -40,6 +41,7 @@ function processDivChange() {
 }
 
 var client;
+// Function to send question to server
 function processData(postString) {
    client = new XMLHttpRequest();
    client.open('POST','http://developer.cege.ucl.ac.uk:30266/createQuestion',true);
@@ -48,9 +50,8 @@ function processData(postString) {
    client.onreadystatechange = dataUploaded;
    client.send(postString);
 }
-// create the code to wait for the response from the data server, and process the response once it is received
+// Function to display the upload result
 function dataUploaded() {
-  // this function listens out for the server to say that the data is ready - i.e. has state 4
   if (client.readyState == 4) {
     // change the DIV to show the response
     document.getElementById("dataUploadResult").innerHTML = client.responseText;
@@ -78,7 +79,7 @@ function onMapClick(e) {
 // now add the click event detector to the map 
 mymap.on('click', onMapClick);
          
-
+// Function to extract the question parts from the form
 function startDataUpload() {
 
 var question = document.getElementById("question").value;
