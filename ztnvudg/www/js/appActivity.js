@@ -15,96 +15,97 @@
 		
 		
 
-	/* create a variable that will hold the XMLHttpRequest() - this must be done outside a function so
-	that all the functions can use the same variable */
-	var client
-	/* and a variable that will hold the layer itself – we need to do this outside the function so that we
-	can use it to remove the layer later on */
-	var earthquakelayer;
-	
-	// create the code to get the Earthquakes data using an XMLHttpRequest
-	function getEarthquakes() {
-		client = new XMLHttpRequest();
-
-	client.open('GET','https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
-		client.onreadystatechange = earthquakeResponse;
-		// note don't use earthquakeResponse() with brackets as that doesn't work
-		client.send();
+var xhr; // define the global variable to process the AJAX request
+function callDivChange() {
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", "questionsUserGuide.html", true);
+	xhr.onreadystatechange = processDivChange;
+	try {
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	}
-	
-	/* create the code to wait for the response from the data server, and process the response once 
-	it is received */
-	function earthquakeResponse() {
-		// this function listens out for the server to say that the data is ready - i.e. has state 4
-		if (client.readyState == 4) {
-			// once the data is ready, process the data
-			var earthquakedata = client.responseText;
-			loadEarthquakelayer(earthquakedata);
-			}
+	catch (e) {
+		// this only works in internet explorer
 	}
-	// convert the received data - which is text - to JSON format and add it to the map
-	function loadEarthquakelayer(earthquakedata) {
-		// convert the text to JSON
-		var earthquakejson = JSON.parse(earthquakedata);
-		// add the JSON layer onto the map - it will appear using the default icons
-		var earthquakelayer = L.geoJson(earthquakejson).addTo(mymap);
-		// change the map zoom so that all the data is shown
-		mymap.fitBounds(earthquakelayer.getBounds());
-	}
-
-	
-	
-	
-	
-	
-		/* create a variable that will hold the XMLHttpRequest() - this must be done outside a function so
-	that all the functions can use the same variable */
-	var client
-	/* and a variable that will hold the layer itself – we need to do this outside the function so that we
-	can use it to remove the layer later on */
-	var poilayer;
-	
-	// create the code to get the Earthquakes data using an XMLHttpRequest
-	function getPoi() {
-		client = new XMLHttpRequest();
-
-	client.open('GET','http://developer.cege.ucl.ac.uk:30266/getGeoJSON/united_kingdom_highway/geom');
-		client.onreadystatechange = poiResponse;
-		// note don't use earthquakeResponse() with brackets as that doesn't work
-		client.send();
-	}
-	
-	/* create the code to wait for the response from the data server, and process the response once 
-	it is received */
-	function poiResponse() {
-		// this function listens out for the server to say that the data is ready - i.e. has state 4
-		if (client.readyState == 4) {
-			// once the data is ready, process the data
-			var poidata = client.responseText;
-			loadPoilayer(poidata);
-			}
-	}
-	// convert the received data - which is text - to JSON format and add it to the map
-	function loadPoilayer(poidata) {
-		// convert the text to JSON
-		var poijson = JSON.parse(poidata);
-		// add the JSON layer onto the map - it will appear using the default icons
-		var poilayer = L.geoJson(poijson).addTo(mymap);
-		// change the map zoom so that all the data is shown
-		mymap.fitBounds(poilayer.getBounds());
-	}
-
-	
-	
-function trackLocation() {
- if (navigator.geolocation) {
-     navigator.geolocation.watchPosition(showPosition);
- } else {
-     alert('Geolocation is not supported by this browser.');
- }
+	xhr.send();
 }
-function showPosition(position) {
-		L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap)
-			.bindPopup("<b>Position</b><br />Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude).openPopup();
-			mymap.flyTo([position.coords.latitude, position.coords.longitude], 13);
+
+function processDivChange() {
+	if (xhr.readyState < 4) // while waiting response from server
+		document.getElementById('main').innerHTML = "Loading...";
+	else if (xhr.readyState === 4) { // 4 = Response from server has been completely loaded.
+		if (xhr.status == 200 && xhr.status < 300)
+			// http status between 200 to 299 are all successful
+			document.getElementById('main').innerHTML = xhr.responseText;
+	}
 }
+
+var client;
+function processData(postString) {
+   client = new XMLHttpRequest();
+   client.open('POST','http://developer.cege.ucl.ac.uk:30266/createQuestion',true);
+ 
+   client.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   client.onreadystatechange = dataUploaded;
+   client.send(postString);
+}
+// create the code to wait for the response from the data server, and process the response once it is received
+function dataUploaded() {
+  // this function listens out for the server to say that the data is ready - i.e. has state 4
+  if (client.readyState == 4) {
+    // change the DIV to show the response
+    document.getElementById("dataUploadResult").innerHTML = client.responseText;
+	alert("Question successfully submitted!");
+    }
+  else {
+      document.getElementById("dataUploadResult").innerHTML = "ERROR";
+  }
+}
+
+
+// create a custom popup 
+var popup = L.popup();
+// create an event detector to wait for the user's click event and then use the popup to show them where they clicked
+
+var latlng;
+
+function onMapClick(e) { 
+	popup
+		.setLatLng(e.latlng)
+		.setContent("You are adding a question at this point " + e.latlng.toString()) 
+		.openOn(mymap);
+	latlng = e.latlng;
+}
+// now add the click event detector to the map 
+mymap.on('click', onMapClick);
+         
+
+function startDataUpload() {
+
+var question = document.getElementById("question").value;
+var answer1 = document.getElementById("answer1").value;
+var answer2 = document.getElementById("answer2").value;
+var answer3 = document.getElementById("answer3").value;
+var answer4 = document.getElementById("answer4").value;
+var correctAnswer = 0;
+
+
+
+if (document.getElementById("correctAnswer1").checked === true) {
+	correctAnswer = 1;
+}
+else if (document.getElementById("correctAnswer2").checked === true) {
+	correctAnswer = 2;
+}
+else if (document.getElementById("correctAnswer3").checked === true) {
+	correctAnswer = 3;
+}
+else if (document.getElementById("correctAnswer4").checked === true) {
+	correctAnswer = 4;
+}
+
+var postString = "question="+question+"&answer1="+answer1+"&answer2="+answer2+"&answer3="+answer3+"&answer4="+answer4+"&correctAnswer="+correctAnswer+"&lng="+latlng.lng+"&lat="+latlng.lat;
+processData(postString);
+
+}
+
+ 
